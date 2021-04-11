@@ -1,6 +1,6 @@
 {
   "name": "@pinkhominid/pop-menu",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Colocated overlay drop menu that pops out of scroll ancestors and traps focus",
   "main": "./pop-menu.js",
   "exports": "./pop-menu.js",
