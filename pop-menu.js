@@ -112,6 +112,8 @@ export class PopMenu extends HTMLElement {
     } else {
       this.removeAttribute('open');
     }
+
+    this.dispatchEvent(new CustomEvent('toggle', { detail: { open: this.open } }));
   }
 
   get disabled() {

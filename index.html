@@ -31,6 +31,12 @@
 </style>
 <script type="module">
   import './pop-menu.js';
+  for (const el of document.querySelectorAll('pop-menu')) {
+    el.addEventListener(
+      'toggle',
+      e => console.log(e.target, 'toggle', e.detail.open ? 'open' : 'close')
+    );
+  }
 </script>
 <div id=scroll-outer class=scroll>
   <select>
