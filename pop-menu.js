@@ -186,7 +186,7 @@ export class PopMenu extends HTMLElement {
 
   __positionMenu() {
     const menuWrapRect = this.__menuWrap.getBoundingClientRect();
-    this.__menu.style.top = menuWrapRect.top;
+    this.__menu.style.top = menuWrapRect.top + 'px';
   }
 
   __upgradeProperty(prop) {
