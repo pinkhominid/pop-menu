@@ -1,0 +1,49 @@
+{
+  "name": "@pinkhominid/pop-menu",
+  "version": "0.1.0",
+  "description": "Colocated overlay drop menu that pops out of scroll ancestors and traps focus",
+  "main": "./pop-menu.js",
+  "exports": "./pop-menu.js",
+  "module": "./pop-menu.js",
+  "files": [
+    "/pop-menu.js"
+  ],
+  "scripts": {
+    "start": "wds --node-resolve -wo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinkhominid/pop-menu.git"
+  },
+  "keywords": [
+    "vanilla",
+    "custom",
+    "element",
+    "webcomponents",
+    "web",
+    "component",
+    "wc",
+    "overlay",
+    "pop",
+    "menu",
+    "drop",
+    "dropdown",
+    "overflow",
+    "hidden",
+    "scroll",
+    "focus",
+    "trap"
+  ],
+  "author": "pinkhominid <pinkhominid@birdbomb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pinkhominid/pop-menu/issues"
+  },
+  "homepage": "https://github.com/pinkhominid/pop-menu#readme",
+  "devDependencies": {
+    "@web/dev-server": "^0.1.11"
+  },
+  "dependencies": {
+    "@a11y/focus-trap": "^1.0.5"
+  }
+}
