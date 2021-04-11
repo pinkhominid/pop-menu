@@ -4,7 +4,6 @@
  * MIT license
  *
  * TODO
- * - change name or scope @ph
  * - overscroll-behavior not preventing scroll via keyboard
  * - Shim not preventing scroll via scrollbar thumb (macOS edge case?)
  * - Flip
