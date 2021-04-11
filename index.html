@@ -1,0 +1,163 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+  .scroll {
+    overflow: auto;
+    border: 2px dotted #aaa;
+    padding: 1em;
+  }
+  #scroll-outer {
+    height: 450px;
+    width: 400px;
+  }
+  #scroll-inner {
+    height: 250px;
+    width: 350px;
+  }
+  #menu {
+    margin: 0;
+    background-color: #fff;
+    border: 2px solid #aaa;
+    padding: 1em;
+    min-width: 200px;
+  }
+</style>
+<script type="module">
+  import './pop-menu.js';
+</script>
+<div id=scroll-outer class=scroll>
+  <select>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <p>Outer</p>
+  <p>Outer</p>
+  <p>Outer</p>
+  <div id=scroll-inner class=scroll>
+    <select>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <p>Inner</p>
+    <p>Inner</p>
+    <p>Inner</p>
+    <pop-menu justify=start>
+      <button slot=trigger>Pop (justify=start)</button>
+      <ul id=menu slot=menu>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>
+          Item 3
+          <select>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>
+          Item 8
+          <select>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+        <li>Item 11</li>
+        <li>Item 12</li>
+      </ul>
+    </pop-menu>
+    <pop-menu justify=center>
+      <button slot=trigger>Pop (justify=center)</button>
+      <ul id=menu slot=menu>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>
+          Item 3
+          <select>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>
+          Item 8
+          <select>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+        <li>Item 11</li>
+        <li>Item 12</li>
+      </ul>
+    </pop-menu>
+    <pop-menu justify=end>
+      <button slot=trigger>Pop (justify=end)</button>
+      <ul id=menu slot=menu>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>
+          Item 3
+          <select>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>
+          Item 8
+          <select>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+        <li>Item 11</li>
+        <li>Item 12</li>
+      </ul>
+    </pop-menu>
+    <p>Inner</p>
+    <p>Inner</p>
+    <p>Inner</p>
+    <select>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+  </div>
+  <p>Outer</p>
+  <p>Outer</p>
+  <p>Outer</p>
+  <select>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+</div>
