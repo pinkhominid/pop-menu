@@ -4,16 +4,25 @@
  * MIT license
  *
  * TODO
- * - overscroll-behavior not preventing scroll via keyboard
  * - Shim not preventing scroll via scrollbar thumb (macOS edge case?)
- * - Flip
- * - PreventOverflow?
+ * - Flip & PreventOverflow
  * - R&D alternative approaches
  *   - IntersectionObserver with viewport? and/or position fixed items above and below?
  *   - MutationObserver for internals changing?
  */
 
 import '@a11y/focus-trap';
+
+const scrollKeys = [
+  'ArrowUp',
+  'ArrowRight',
+  'ArrowDown',
+  'ArrowLeft',
+  'PageUp',
+  'End',
+  'PageDown',
+  'Home',
+];
 
 const tmpl = document.createElement('template');
 tmpl.innerHTML = `
@@ -146,6 +155,7 @@ export class PopMenu extends HTMLElement {
     this.__shim = shadowRoot.getElementById('shim');
 
     this.__onTriggerClick = this.__onTriggerClick.bind(this);
+    this.__onTriggerKeydown = this.__onTriggerKeydown.bind(this);
     this.__onShimScroll = this.__onShimScroll.bind(this);
     this.__onShimClick = this.__onShimClick.bind(this);
   }
@@ -155,6 +165,7 @@ export class PopMenu extends HTMLElement {
     this.__upgradeProperty('disabled');
 
     this.__trigger.addEventListener('click', this.__onTriggerClick);
+    this.__trigger.addEventListener('keydown', this.__onTriggerKeydown);
     this.__shim.addEventListener('scroll', this.__onShimScroll);
     this.__shim.addEventListener('click', this.__onShimClick);
 
@@ -164,6 +175,7 @@ export class PopMenu extends HTMLElement {
 
   disconnectedCallback() {
     this.__trigger.removeEventListener('click', this.__onTriggerClick);
+    this.__trigger.removeEventListener('keydown', this.__onTriggerKeydown);
     this.__shim.removeEventListener('scroll', this.__onShimScroll);
     this.__shim.removeEventListener('click', this.__onShimClick);
   }
@@ -215,9 +227,12 @@ export class PopMenu extends HTMLElement {
     this.open = !this.open;
   }
 
+  __onTriggerKeydown(e) {
+    if (scrollKeys.includes(e.key)) e.preventDefault();
+  }
+
   __onShimScroll() {
-    if (this.__opening) return;
-    this.open = false;
+    if (!this.__opening) this.open = false;
   }
 
   __onShimClick() {
