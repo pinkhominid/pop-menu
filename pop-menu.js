@@ -203,10 +203,13 @@ export class PopMenu extends HTMLElement {
 
   __toggleDocScrollNone(force) {
     if (force) {
-      this.__origDocScrollElStyleOverflow = document.scrollingElement.style.overflow;
+      if (this.__origDocScrollElStyleOverflow == null) {
+        this.__origDocScrollElStyleOverflow = document.scrollingElement.style.overflow;
+      }
       document.scrollingElement.style.overflow = 'hidden';
     } else {
       document.scrollingElement.style.overflow = this.__origDocScrollElStyleOverflow;
+      this.__origDocScrollElStyleOverflow = null;
     }
   }
 
