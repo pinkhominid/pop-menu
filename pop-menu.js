@@ -109,8 +109,10 @@ export class PopMenu extends HTMLElement {
     // Reflect to attribute
     if (val) {
       this.setAttribute('open', '');
+      this.__toggleDocScrollNone(true);
     } else {
       this.removeAttribute('open');
+      this.__toggleDocScrollNone(false);
     }
 
     this.dispatchEvent(new CustomEvent('toggle', { detail: { open: this.open } }));
@@ -180,9 +182,19 @@ export class PopMenu extends HTMLElement {
         // giving some scroll slack helps it feel more responsive
         this.__shim.scrollTop = 100;
         this.__shim.scrollLeft = 100;
+
         // delay till scrollTop/Left is applied
         requestAnimationFrame(() => this.__opening = false);
       }
+    }
+  }
+
+  __toggleDocScrollNone(force) {
+    if (force) {
+      this.__origDocScrollElStyleOverflow = document.scrollingElement.style.overflow;
+      document.scrollingElement.style.overflow = 'hidden';
+    } else {
+      document.scrollingElement.style.overflow = this.__origDocScrollElStyleOverflow;
     }
   }
 
